@@ -6,6 +6,8 @@ from fastapi import (
     UploadFile,
     File
 )
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pathlib import Path
 import shutil
 import uuid
@@ -67,13 +69,20 @@ UPLOAD_DIRECTORY.mkdir(
 # HOME
 # =====================================
 
+# =====================================
+# SERVE FRONTEND
+# =====================================
+
+app.mount(
+    "/static",
+    StaticFiles(directory="frontend"),
+    name="static"
+)
+
+
 @app.get("/")
 def home():
-
-    return {
-        "message": "AI Recruitment Agent is running"
-    }
-
+    return FileResponse("frontend/index.html")
 
 # =====================================
 # UPLOAD MULTIPLE RESUMES
