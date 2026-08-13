@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Recruitment Agent</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+
+            <div class="header-top">
+                <div>
+                    <h1>AI Recruitment Agent</h1>
+                    <p>AI-powered resume screening and candidate matching</p>
+                </div>
+
+               
+            </div>
+
+        </header>
+
+
+        <!-- JOB DESCRIPTION -->
+        <section class="card">
+
+            <h2>Job Description</h2>
+
+            <textarea
+                id="jobDescription"
+                placeholder="Paste the job description here..."
+            ></textarea>
+
+        </section>
+
+
+        <!-- RESUME UPLOAD -->
+        <section class="card">
+
+            <h2>Upload Resumes</h2>
+
+            <input
+                type="file"
+                id="resumeFiles"
+                accept=".pdf"
+                multiple
+            >
+
+            <p id="fileInfo">
+                You can upload multiple PDF resumes.
+            </p>
+
+        </section>
+
+
+        <!-- THRESHOLD -->
+        <section class="card">
+
+            <h2>Minimum Match Score</h2>
+
+            <div class="threshold-container">
+
+                <input
+                    type="number"
+                    id="threshold"
+                    value="30"
+                    min="0"
+                    max="100"
+                >
+
+                <span>%</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECRUIT BUTTON -->
+        <button
+            id="recruitButton"
+            type="button"
+            onclick="startRecruitment()"
+        >
+            🚀 Start Recruitment
+        </button>
+
+
+        <!-- LOADING -->
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+            <div class="spinner"></div>
+
+            <p>
+                Processing resumes and analyzing candidates...
+            </p>
+        </div>
+
+
+        <!-- RESULTS -->
+        <section
+            id="results"
+            class="hidden"
+        >
+
+            <h2>Recruitment Results</h2>
+
+            <div id="candidateContainer"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
